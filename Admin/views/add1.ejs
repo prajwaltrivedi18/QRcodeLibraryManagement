@@ -1,0 +1,102 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Form Example</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      line-height: 2rem;
+    }
+    label{
+      display: flex;
+      align-items:flex-start;
+    }
+    
+  </style>
+</head>
+<body>
+    <form action="/add1" method="post">
+  <center>
+  <div class="container">
+    <h2>New Book</h2><br>
+    <form>
+      <div class="form-group">
+        <label for="bookid" >Book Id:</label>
+        <input type="text" class="form-control" name="bid"  placeholder="Enter Book Id">
+      </div>
+      <div class="form-group">
+        <label for="bookname">Book Name:</label>
+        <input type="text" class="form-control" name="bname" placeholder="Enter New Book">
+      </div>
+      <div class="form-group">
+        <label for="bookcount">Book count:</label>
+        <input type="text" class="form-control" name="count" placeholder="Enter no. of Books">
+      </div>
+      <button type="submit" class="btn btn-primary"><a href="" >Back</a></button>&nbsp;&nbsp;&nbsp;&nbsp; 
+<input type="submit" value="Submit">
+<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    <!-- </form>
+  </div>
+</center>
+</form>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body> -->
+<!-- </html> --> 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a book</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background: rgb(174,188,238);
+background: linear-gradient(90deg, rgba(174,188,238,1) 0%, rgba(66,82,223,0.9360994397759104) 100%);
+      padding: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      line-height: 2rem;
+    }
+    label{
+      display: flex;
+      align-items:flex-start;
+    }
+    /* D:\MP\admin\views\add1.html */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>New Book</h2><br>
+    <form action="/add1" method="post">
+      <div class="form-group">
+        <label for="bookid">Book Id:</label>
+        <input type="text" class="form-control" name="bid" placeholder="Enter Book Id" required>
+      </div>
+      <div class="form-group">
+        <label for="bookname">Book Name:</label>
+        <input type="text" class="form-control" name="bname" placeholder="Enter New Book" required>
+      </div>
+      <div class="form-group">
+        <label for="bookname">Author :</label>
+        <input type="text" class="form-control" name="author" placeholder="Enter Author's name" required>
+      </div>
+      <div class="form-group">
+        <label for="bookname">Publication:</label>
+        <input type="text" class="form-control" name="publication" placeholder="Enter publication" required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

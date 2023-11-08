@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <form action="/enter" method="post">
+    <input type="radio" id="ADA" name="book" value="ADA">
+<label for="ADA">ADA</label><br>
+<input type="radio" id="Java" name="book" value="Java">
+<label for="Java">Java</label><br>
+<input type="radio" id="OS" name="book" value="OS">
+<label for="OS">OS</label>
+<input type="submit">
+</form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Remaining books</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+  *{
+    background: rgb(222,221,238);
+background: linear-gradient(90deg, rgba(222,221,238,1) 0%, rgba(233,233,246,1) 0%, rgba(239,240,211,1) 100%, rgba(231,220,147,1) 100%, rgba(98,146,241,1) 100%, rgba(138,239,240,0.9360994397759104) 100%);
+    margin: 0px;
+    padding: 0px;
+  }
+  h1{
+    /* margin-top: 20px; */
+    padding-top: 30px;
+    height: 80px;
+    width: 100%;
+    background: rgb(67,105,240);
+background: linear-gradient(90deg, rgba(67,105,240,1) 0%, rgba(98,146,241,1) 21%, rgba(106,164,241,1) 36%, rgba(138,239,240,0.9360994397759104) 100%);
+
+  }
+  .tb{
+     margin-top: 100px;
+  }
+</style>
+</head>
+<body style="font-family: 'Poppins', sans-serif;">
+
+    <form id="myForm" action="/all" method="post">
+    <div class="table-data">
+ <center><h1>List of Books</h2></center>
+    
+   <center> <table border="1rem" style="width:70rem;height:2rem;" class="tb">
+        <tr>
+            <th name="bid">Book id</th>
+            <th>Book name</th>
+            <th>Author</th>
+            <th>Publication</th>
+
+            
+        </tr>
+        
+        <%
+        if(bookData.length!=0){
+        <!-- var i=1; -->
+        bookData.forEach(function(data){
+        %>
+        <tr>
+           
+           <td> <center><%=data.bid %></center></td>
+            <td><center><%=data.bname %></center></td>
+            <td><center><%=data.author %></center></td>
+            <td><center><%=data.publication %></center></td>
+        </tr>
+        <%  }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+      </table>
+    </center>
+    </div>
+</form>
+
+  
+  <!-- <script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
+  
+      // Submit form using AJAX
+      fetch("/submit", {
+        method: "POST",
+        body: new FormData(document.getElementById("myForm")),
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Redirect to page2
+            window.location.href = "/enter";
+          } else {
+            // Handle error
+            console.error("Form submission failed.");
+          }
+        })
+        .catch((error) => {
+          console.error("An error occurred:", error);
+        });
+    });
+  </script> -->
+  
+</body>
+</html>

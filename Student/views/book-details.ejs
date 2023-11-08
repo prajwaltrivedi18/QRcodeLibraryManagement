@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      background: linear-gradient(120deg, #2196F3 0%, #00BCD4 100%);
+    }
+  .s{
+    background-color:#4CAF50;
+    border-radius: 5px;
+    padding: 3px;
+  }
+    .card {
+      background-color: transparent;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      background-image: linear-gradient(45deg, #1976D2 0%, #03A9F4 100%);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .book-title {
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .book-info {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .book-details {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .message {
+      color: #000000;
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bolder;
+      font-style: italic;
+    }
+
+    .borrow-form {
+      margin-top: 20px;
+    }
+
+    .borrow-form input[type="text"] {
+      height:30px;
+      width: 80%;
+      padding: 5px;
+      font-size: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      color: #000000;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .borrow-form input[type="text"]:focus {
+      border-color: #6fb3e0;
+    }
+
+    .borrow-form button[type="submit"] {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 6px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .borrow-form button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+
+    .myMod {
+      max-width: 300px;
+      width: 80%;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      color: #000;
+    }
+
+    .modal-header {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .modal-message {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .modal-close {
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 6px;
+      background-color: #ddd;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background-color: #ccc;
+    }
+  </style>
+    <title>Book Details</title>
+    <script>
+      function validateText() {
+        var text = document.getElementById('usnjs').value;
+  
+        // Check if the text is empty
+        if (text.trim() === "") {
+          alert("Text is empty.");
+          return false;
+        }
+  
+        // Check if the text contains only letters (no numbers or special characters)
+        var lettersRegex = (/^[1-4]{1}[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{3}$/);
+        if (!lettersRegex.test(text)) {
+          alert("The entered USN is not in correct format. Enter in correct format");
+          return false;
+          // document.getElementById("ret").value="false";
+        }
+  
+        // Additional validation rules can be added here based on your requirements
+        return true;
+        // If all validation checks pass, return true
+        // document.getElementById("ret").value="true";
+  
+      }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+<body>
+  <form action="/enter" method="post" onsubmit="return validateText()" >
+  <div class="card">
+    <h1 class="book-title">Book Details</h1>
+    <h2 class="book-info">Title: <%- book.bname %></h2>
+    <p class="book-details">Book ID: <%-book.bid%></p>
+    <p class="book-details">Author: <%- book.author %></p>
+    <p class="book-details">Publication: <%- book.publication %></p>
+
+   <br>
+      <div class="form-group">
+        <!-- <label for="bookid">Name:</label> -->
+        <input type="text" class="form-control" name="sname" placeholder="Enter your name" style="color: #ddd;">
+      </div>
+      <div class="form-group">
+        <!-- <label for="bookname">Book Name:</label> -->
+        <input type="text" class="form-control" name="usn" id="usnjs" placeholder="Enter your USN" style="color: #ddd;">
+      </div> 
+      <input type="hidden" name="bn" value="<%= book.bname %>">
+      <input type="hidden" name="bid" value="<%= book.bid %>">
+      <input type="hidden" name="author" value="<%= book.author %>">
+      <input type="hidden" name="publication" value="<%= book.publication %>">
+
+      <input type="submit" name="s" value="Borrow">
+   
+    </div>
+       
+  </div>
+</form>
+
+<!-- <div class="modal fade myMod" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="confirmModalLabel">Borrow Book</h2>
+      </div>
+      <div class="modal-body">
+        <p id="modalMessage">Are you sure you want to borrow this book?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="borrowBook()">Borrow</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+</form>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- <script>
+    function borrowBook() {
+      
+      document.getElementById("modalMessage").innerHTML = "Book borrowed!";
+    }
+  </script> -->
+</body>
+</html>

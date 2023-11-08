@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Book</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .form-container {
+      border: none;
+      padding: 30px;
+      background: linear-gradient(to right, #ffffff, #f8f9fa);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      color: #0025fa;
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    form {
+      margin-top: 20px;
+      text-align: center;
+    }
+    select {
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 6px;
+      border: 1px solid #ff6b6b;
+      background-color: #fff0f0;
+      color: #ff6b6b;
+      outline: none;
+      transition: border-color 0.3s ease;
+      width: 300px;
+      margin-right: 10px;
+    }
+    select:focus {
+      border-color: #ff3547;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 6px;
+      background-color: #ff6b6b;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1>Select a Book</h1>
+      <form action="/book" method="post">
+        <div class="form-group">
+          <select class="form-control" name="bookId">
+            <% books.forEach(function(book) { %>
+              <option value="<%= book.bid %>"><%= book.bname %></option>
+            <% }); %>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Show Details</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
